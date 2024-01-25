@@ -2,6 +2,11 @@
 name = "hundred-doors"
 version = "0.1.0"
 edition = "2021"
+description = "A tool for calculating and visualizing the '100 Doors' problem"
+repository = "https://github.com/hiimsergey/hundred_doors"
+license = "GPL-3.0"
+keywords = ["mathematics", "math-problem", "ncurses", "cli", "doors"]
+categories = ["command-line-utilities", "mathematics"]
 
 [dependencies]
 ncurses = "5.101.0"
