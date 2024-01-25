@@ -21,7 +21,7 @@ Options:
   -d, --draw           Whether there should be a graphical representation of these doors
   -e, --explain        Whether to explain the problem
       --twave <TWAVE>  How many milliseconds to wait before the next wave [default: 0]
-      --tdoor <TDOOR>  How many milliseconds to wait before doors [default: 0]
+      --tdoor <TDOOR>  How many milliseconds to wait between new doors [default: 0]
   -h, --help           Print help
   -V, --version        Print version
 ```

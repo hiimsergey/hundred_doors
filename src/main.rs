@@ -5,7 +5,7 @@ use ncurses::*;
 #[derive(Parser)]
 #[command(author, version)]
 #[command(arg_required_else_help(true))]
-/// A simple program that calculates and visualizes the "100 Doors" problem.
+/// A tool for calculating and visualizing the "100 Doors" problem.
 struct Args {
 	/// How many doors there are
 	#[arg(default_value_t = 100)]
@@ -23,7 +23,7 @@ struct Args {
 	#[arg(long, default_value_t = 0)]
 	twave: u64,
 
-	/// How many milliseconds to wait before doors
+	/// How many milliseconds to wait between doors
 	#[arg(long, default_value_t = 0)]
 	tdoor: u64
 }
