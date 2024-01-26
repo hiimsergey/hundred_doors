@@ -45,34 +45,40 @@ fn main() {
 		process::exit(0);
 	}
 
-	let mut doors: Vec<bool> = vec![false; args.number];
+	let result = (args.number as f64).sqrt().floor();
 
-	if args.draw {
-		draw(&mut doors, args);
-	} else {
-		for wave in 0..args.number {
-			for i in (wave..args.number).step_by(wave + 1) {
-				doors[i] = !doors[i];
-			}
+	if args.draw { draw(args); }
+
+	/* Now, according to math, the number of open doors depending on the total
+	number of doors is f(x) = sqrt(x), so I don't actually need the hard work here.
+	This is the code that I used in an earlier version. A modified version is
+	still there in the `draw` function.
+
+	for wave in 0..args.number {
+		for i in (wave..args.number).step_by(wave + 1) {
+			doors[i] = !doors[i];
 		}
 	}
+	*/
 
-	println!("{}", doors.iter().filter(|d| **d).count());
+	println!("{result}");
 }
 
-fn draw(doors: &mut [bool], args: Args) {
-    initscr();
+fn draw(args: Args) {
+    let mut doors: Vec<bool> = vec![false; args.number];
+
+	initscr();
     raw();
     keypad(stdscr(), true);
     timeout(0);
 
 	// Register colors, red and green
 	start_color();
-	init_pair(1, COLOR_RED, COLOR_BLACK);
-	init_pair(2, COLOR_GREEN, COLOR_BLACK);
+	init_pair(1, COLOR_GREEN, COLOR_BLACK);
+	init_pair(2, COLOR_RED, COLOR_BLACK);
 
 	for wave in 0..args.number {
-		for door in &*doors {
+		for door in doors.iter() {
 			// Key codes of Ctrl-C, Esc and 'q'
 			if [3, 27, 113].contains(&getch()) { process::exit(2); }
 
@@ -88,7 +94,7 @@ fn draw(doors: &mut [bool], args: Args) {
 		}
 
 		// Door toggling part
-		for i in (wave..args.number).filter(|i| i % (wave + 1) == 0) {
+		for i in (wave..args.number).step_by(wave + 1) {
 			doors[i] = !doors[i];
 		}
 
