@@ -84,8 +84,10 @@ fn draw(args: Args) {
 
 			addstr(if *door {
 				attron(COLOR_PAIR(1));
+				attron(A_BOLD());
 				"open "
 			} else {
+				attroff(A_BOLD());
 				attron(COLOR_PAIR(2));
 				"shut "
 			});
