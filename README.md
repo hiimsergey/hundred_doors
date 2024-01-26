@@ -36,4 +36,6 @@ $ hundred-doors 100
 $ hundred-doors 100 --draw --tdoor 10 --twave 50
 ```
 
-<center>*ncurses opens*</center>
+You'll see an "animation" of the respective doors. Here's a screenshot:
+
+![hundred-doors-screenshot](https://github.com/hiimsergey/hundred_doors/assets/91432388/4e5e72bb-333c-4c28-b46f-e6f5f1055ee8)
