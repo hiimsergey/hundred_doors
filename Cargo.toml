@@ -1,6 +1,6 @@
 [package]
 name = "hundred-doors"
-version = "0.1.2"
+version = "0.1.3"
 edition = "2021"
 description = "A tool for calculating and visualizing the '100 Doors' problem."
 repository = "https://github.com/hiimsergey/hundred_doors"

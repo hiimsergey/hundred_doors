@@ -31,8 +31,8 @@ struct Args {
 const EXPLANATION: &str = "Imagine a hundred closed doors in a corridor.
 You go and open every one of them.
 Then, you open every second one. (If the door was open, then just close it.)
-Then, every third. Then, every fourth and every fifth and so on until you only touch the 100th door.
-You go and open every one of them.
+Then, every third. Then, every fourth and every fifth and so on until you only
+touch the 100th door.
 
 With this program you can set a custom number of doors and have the total number
 and their respective indices printed and/or visualized.";
@@ -49,8 +49,8 @@ fn main() {
 
 	if args.draw { draw(args); }
 
-	/* Now, according to math, the number of open doors depending on the total
-	number of doors is f(x) = sqrt(x), so I don't actually need the hard work here.
+	/* According to math, the number of open doors depending on the total
+	number of doors is just the square root, so I don't actually need the hard work here.
 	This is the code that I used in an earlier version. A modified version is
 	still there in the `draw` function.
 
@@ -65,14 +65,14 @@ fn main() {
 }
 
 fn draw(args: Args) {
-    let mut doors: Vec<bool> = vec![false; args.number];
+	let mut doors: Vec<bool> = vec![false; args.number];
 
 	initscr();
-    raw();
-    keypad(stdscr(), true);
-    timeout(0);
+	raw();
+	keypad(stdscr(), true);
+	timeout(0);
 
-	// Register colors, red and green
+	// Registers colors, red and green
 	start_color();
 	init_pair(1, COLOR_GREEN, COLOR_BLACK);
 	init_pair(2, COLOR_RED, COLOR_BLACK);
